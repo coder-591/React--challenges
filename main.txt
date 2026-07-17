@@ -1,3 +1,7 @@
 Learning new concept of git and that is branch in git
 
 now I am merging the branchs
+now I am merging the branchs
+now I am merging the branchs
+now I am merging the branchs
+cls
