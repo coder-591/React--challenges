@@ -2,7 +2,7 @@
 
 body {
   background-color: black;
-  color:white
+  color: white;
 }
 .searchbar {
   display: flex;
@@ -30,11 +30,9 @@ body {
   margin-top: 20px;
   list-style: none;
 }
-.feed::-webkit-scrollbar{
+.feed::-webkit-scrollbar {
   display: none;
 }
-
-
-
-
-
+.emp::-webkit-scrollbar {
+  display: none;
+}

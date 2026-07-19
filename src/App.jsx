@@ -5,6 +5,7 @@ import Category from "./Components/Multi Filter/Category";
 import ShowItems from "./Components/ShoppingCart/ShowItems";
 import Cart from "./Components/ShoppingCart/Cart";
 import InfiniteFeed from "./Components/InfiniteFeed/InfiniteFeed";
+import SortingTable from "./Components/SortingTable/SortingTable";
 
 const App = () => {
   return (
@@ -17,8 +18,9 @@ const App = () => {
       {/* <ShowItems />
       <Cart/> */}
       {/* # 4 problem infinite scrolling feed */}
-
-      <InfiniteFeed />
+      {/* <InfiniteFeed /> */}
+      {/* # 6 problem Sorting table */}
+      {/* <SortingTable /> */}
       
     </>
   );
