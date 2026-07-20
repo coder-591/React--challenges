@@ -6,6 +6,7 @@ import ShowItems from "./Components/ShoppingCart/ShowItems";
 import Cart from "./Components/ShoppingCart/Cart";
 import InfiniteFeed from "./Components/InfiniteFeed/InfiniteFeed";
 import SortingTable from "./Components/SortingTable/SortingTable";
+import MultiStepForms from "./Components/MultiStepForm/MultiStepForms";
 
 const App = () => {
   return (
@@ -21,6 +22,8 @@ const App = () => {
       {/* <InfiniteFeed /> */}
       {/* # 6 problem Sorting table */}
       {/* <SortingTable /> */}
+       {/* # 7 problem Sorting table */}
+       <MultiStepForms />
       
     </>
   );
