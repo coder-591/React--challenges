@@ -1,35 +1,33 @@
-import React from "react";
+import { CircleCheck } from "lucide-react";
+import { useEffect, useState } from "react";
 
-const FormHeader = () => {
+const FormHeader = ({ stepCount }) => {
+  const [isActive, setIsActive] = useState(false);
+  const steps = [1, 2, 3, 4];
+
   return (
     <>
-      {/* progress bar */}
-      <div className="absolute w-full h-3 bg-gray-200 rounded-t-2xl">
-        <div className="bg-[#32bca2] w-[33%] h-full rounded-t-2xl "></div>
-      </div>
-      {/* steps and its text */}
-      <div className=" mt-8 px-6 flex items-center justify-between">
-        <div className="flex items-center justify-start gap-1">
-          <span className="bg-[#f9fafb] w-8 h-8 flex items-center justify-center rounded-full border-2 border-[#9ca3af] text-[#9ca3af]">
-            1
-          </span>
+      {/* Content inside of the container */}
 
-          <hr className="border-[#e5e7eb] w-6 outline-0 rounded-2xl" />
-          <span className=" bg-[#f9fafb] w-8 h-8 flex items-center justify-center rounded-full border-2 border-[#9ca3af] text-[#9ca3af]">
-            2
-          </span>
-          <hr className=" border-[#e5e7eb] w-6 outline-0 rounded-2xl" />
-          <span className=" bg-[#f9fafb] w-8 h-8 flex items-center justify-center rounded-full border-2 border-[#9ca3af] text-[#9ca3af]">
-            3
-          </span>
-          <hr className=" border-[#e5e7eb] w-6 outline-0 rounded-2xl" />
-          <span className=" bg-[#f9fafb] w-8 h-8 flex items-center justify-center rounded-full border-2 border-[#9ca3af] text-[#9ca3af]">
-            4
-          </span>
+      <div className=" mt-6 px-6 flex items-center justify-between">
+        <div className="flex items-center justify-start gap-1">
+          {steps.map((num, index) => (
+            <div className="flex items-center justify-start gap-1">
+              <span
+                className={`${num == stepCount ? "bg-[#37c6ab] border-[#37c6ab] text-white" : "bg-[#f9fafb] border-[#37c6ab] text-[#9ca3af]"}  w-8 h-8 flex items-center justify-center rounded-full border-2 `}
+              >
+                {stepCount > num ?<CircleCheck color="#37c6ab" size={"18px"} />: num}
+              </span>
+
+              {index !== steps.length - 1 && (
+                <hr className={"border-[#e5e7eb] w-6 outline-0 rounded-2xl ${}" }/>
+              )}
+            </div>
+          ))}
         </div>
 
         <p className="text-[#9ca3af] font-medium text-[12px] pr-4">
-          STEP 1 OF 4
+          STEP {stepCount} OF 4
         </p>
       </div>
       {/* header text */}
