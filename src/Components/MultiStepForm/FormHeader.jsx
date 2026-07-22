@@ -4,6 +4,18 @@ import { useEffect, useState } from "react";
 const FormHeader = ({ stepCount }) => {
   const [isActive, setIsActive] = useState(false);
   const steps = [1, 2, 3, 4];
+  const stepHeading = [
+    "Create your account",
+    "Company details",
+    "Choose a plan",
+    "Preferences",
+  ];
+  const stepPara = [
+    "Start with your basic info to get set up.",
+    "Tell us a bit about where you work.",
+    "Pick the plan that fits your team.",
+    "Customize your experience.",
+  ];
 
   return (
     <>
@@ -11,16 +23,22 @@ const FormHeader = ({ stepCount }) => {
 
       <div className=" mt-6 px-6 flex items-center justify-between">
         <div className="flex items-center justify-start gap-1">
-          {steps.map((num, index) => (
-            <div className="flex items-center justify-start gap-1">
-              <span
-                className={`${num == stepCount ? "bg-[#37c6ab] border-[#37c6ab] text-white" : "bg-[#f9fafb] border-[#37c6ab] text-[#9ca3af]"}  w-8 h-8 flex items-center justify-center rounded-full border-2 `}
+          {steps.map((num, idx) => (
+            <div key={idx} className="flex items-center justify-start gap-1">
+              <span // 3
+                className={`${num == stepCount ? "bg-[#37c6ab] border-[#37c6ab] text-white" : stepCount > num ? "border-[#37c6ab]" : "bg-[#f9fafb] border-[#9ca3af] text-[#9ca3af]"}  w-8 h-8 flex items-center justify-center rounded-full border-2 transition-all duration-300 `}
               >
-                {stepCount > num ?<CircleCheck color="#37c6ab" size={"18px"} />: num}
+                {stepCount > num ? (
+                  <CircleCheck color="#37c6ab" size={"18px"} />
+                ) : (
+                  num
+                )}
               </span>
 
-              {index !== steps.length - 1 && (
-                <hr className={"border-[#e5e7eb] w-6 outline-0 rounded-2xl ${}" }/>
+              {idx !== steps.length - 1 && (
+                <hr
+                  className={` w-6 outline-0 rounded-2xl ${stepCount > num ? "border-[#37c6ab]" : "border-[#e5e7eb]"}`}
+                />
               )}
             </div>
           ))}
@@ -31,11 +49,21 @@ const FormHeader = ({ stepCount }) => {
         </p>
       </div>
       {/* header text */}
-      <div className="flex flex-col mt-5 px-6 gap-3">
-        <h1 className="font-medium text-xl">Create your Account</h1>
-        <p className="text-[#9ca3af] font-md text-sm">
-          Start with your basic info to get set up.
-        </p>
+      <div className="flex flex-col mt-5 px-6 gap-1">
+        <div>
+          {stepHeading.map((heading, idx) => (
+            <h1 key={idx} className="font-medium text-xl">
+              {stepCount == idx + 1 && heading}
+            </h1>
+          ))}
+        </div>
+        <div>
+          {stepPara.map((para, idx) => (
+            <p key={idx} className="text-[#9ca3af] font-md text-sm">
+              {stepCount == idx + 1 && para}
+            </p>
+          ))}
+        </div>
       </div>
     </>
   );
