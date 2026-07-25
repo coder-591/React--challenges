@@ -1,4 +1,3 @@
-import React from "react";
 import SearchBar from "./Components/Debonce/SearchBar";
 import Suggestion from "./Components/Debonce/Suggestion";
 import Category from "./Components/Multi Filter/Category";
@@ -7,6 +6,7 @@ import Cart from "./Components/ShoppingCart/Cart";
 import InfiniteFeed from "./Components/InfiniteFeed/InfiniteFeed";
 import SortingTable from "./Components/SortingTable/SortingTable";
 import MultiStepForms from "./Components/MultiStepForm/MultiStepForms";
+import ShowDynamicForm from "./Components/Dynamic Form/ShowDynamicForm";
 
 const App = () => {
   return (
@@ -22,9 +22,10 @@ const App = () => {
       {/* <InfiniteFeed /> */}
       {/* # 6 problem Sorting table */}
       {/* <SortingTable /> */}
-       {/* # 7 problem Sorting table */}
-       <MultiStepForms />
-      
+      {/* # 7 problem Multi step form */}
+      {/* <MultiStepForms /> */}
+      {/* # 8 problem Dynamic form builder */}
+      <ShowDynamicForm />
     </>
   );
 };

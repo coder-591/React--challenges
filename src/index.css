@@ -1,15 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
-* {
-  font-family: "Poppins", sans-serif;
-}
-
-
-
 body {
-  background-color: black;
-  color: black;
+  background-color: #f6f6f8;
+  /* color: black; */
+  font-family: "Poppins", sans-serif;
 }
 .searchbar {
   display: flex;
@@ -41,5 +36,33 @@ body {
   display: none;
 }
 .emp::-webkit-scrollbar {
+  display: none;
+}
+
+/* For dynamic form builder */
+@theme {
+  --color-cardColor: #ffffff;
+  --color-sideBarColor: #ffffff;
+  --color-hoverColor: #6d5df6;
+  --color-purpleColor: #5b4ae8;
+  --color-lightPurpleColor: #f4f2ff;
+  --color-headingTextColor: #111827;
+  --color-bodyTextColor: #4b5563;
+  --color-placeHolderColor: #9ca3af;
+  --color-borderActiveColor: #6d5df6;
+  --color-btnTextColor: #fff;
+  --color-iconColor: #4b5563;
+}
+
+.topContent::-webkit-scrollbar {
+  display: none;
+}
+.rightsideBar::-webkit-scrollbar {
+  display: none;
+}
+.leftsideBar::-webkit-scrollbar {
+  display: none;
+}
+.bottomContent::-webkit-scrollbar {
   display: none;
 }
