@@ -5,6 +5,8 @@ body {
   background-color: #f6f6f8;
   /* color: black; */
   font-family: "Poppins", sans-serif;
+  width: 100%;
+  height: 100%;
 }
 .searchbar {
   display: flex;
@@ -42,27 +44,37 @@ body {
 /* For dynamic form builder */
 @theme {
   --color-cardColor: #ffffff;
-  --color-sideBarColor: #ffffff;
+  
   --color-hoverColor: #6d5df6;
   --color-purpleColor: #5b4ae8;
   --color-lightPurpleColor: #f4f2ff;
   --color-headingTextColor: #111827;
   --color-bodyTextColor: #4b5563;
   --color-placeHolderColor: #9ca3af;
+   --color-iconColor: #4b5563;
+
   --color-borderActiveColor: #6d5df6;
-  --color-btnTextColor: #fff;
-  --color-iconColor: #4b5563;
+  --color-borderColor: #9ca3af;
+
+  --color-btnTextColor: #111827;
+  --color-btnPurpleTextColor: #fff;
+  --color-btnBgColor: #ffffff;
+  --color-btnBgPurpleColor: #5b4ae8;
 }
 
 .topContent::-webkit-scrollbar {
   display: none;
+  scroll-behavior: smooth;
 }
 .rightsideBar::-webkit-scrollbar {
   display: none;
+  scroll-behavior: smooth;
 }
 .leftsideBar::-webkit-scrollbar {
   display: none;
+  scroll-behavior: smooth;
 }
 .bottomContent::-webkit-scrollbar {
   display: none;
+  scroll-behavior: smooth;
 }

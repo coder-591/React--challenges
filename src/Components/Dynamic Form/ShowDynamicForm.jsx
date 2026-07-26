@@ -1,12 +1,13 @@
-
 import MainContainer from "./MainContainer";
 import Navbar from "./Navbar";
 
 const ShowDynamicForm = () => {
   return (
     <>
-      <Navbar />
-      <MainContainer />
+      <div className="">
+        <Navbar />
+        <MainContainer />
+      </div>
     </>
   );
 };

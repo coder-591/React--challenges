@@ -1,4 +1,5 @@
 import { Eye, Layers, Pencil, Redo2, Save, Undo2 } from "lucide-react";
+import Button from "./Button";
 const Navbar = () => {
   return (
     <>
@@ -27,15 +28,20 @@ const Navbar = () => {
             <Redo2 color="#4b5563" />
           </label>
 
-          <button className="flex items-center gap-4 px-4 py-3 rounded-xl bg-cardColor shadow-sm cursor-pointer hover:-translate-y-1 transition-all   ">
-            <Eye size={"20px"} />
-            <p className="font-medium text-sm">Preveiw Form</p>
-          </button>
+          <Button
+            text={"Preview Form"}
+            icon={<Eye size={"20px"} />}
+            color={"bg-btnBgColor"}
+            border = {"border border-borderColor hover:border-borderActiveColor"}
+          />
 
-          <button className="flex items-center gap-2 px-5 py-3 rounded-xl bg-purpleColor shadow-sm cursor-pointer hover:-translate-y-1 transition-all">
-            <Save size={"20px"} color="#fff" />
-            <p className="font-medium text-sm text-btnTextColor">Save Form</p>
-          </button>
+          <Button
+            text={"Save Form"}
+            icon={<Save size={"20px"} color="#fff" />}
+            color={"bg-btnBgPurpleColor"}
+            textColor = {"text-btnPurpleTextColor"}
+          />
+
         </div>
       </div>
     </>
