@@ -1,12 +1,16 @@
-import React from 'react'
-import Card from './Card'
+import { useContext, useState } from "react";
+import NoFieldCard from "./NoFieldCard";
+import { StoreContext } from "./Context/ContextApi";
+import Card from "./Card";
 
 const MiddleBar = () => {
-  return (
-    <div>
-        <Card />
-    </div>
-  )
-}
+  const {isActive} = useContext(StoreContext)
 
-export default MiddleBar
+  return (
+    <>
+      {isActive? <Card />: <NoFieldCard />}
+    </>
+  );
+};
+
+export default MiddleBar;

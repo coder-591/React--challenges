@@ -27,7 +27,7 @@ const Fields = () => {
         {toolBox.map((tool) => (
           <div
             key={tool.id}
-            className="bg-cardColor border border-borderColor shadow-sm flex items-center justify-start gap-4 px-4 py-4 cursor-pointer rounded-xl hover:border-borderActiveColor hover:-translate-y-1 transition-all"
+            className="bg-lightPurpleColor border border-borderColor shadow-sm flex items-center justify-start gap-4 px-4 py-4 cursor-pointer rounded-xl hover:border-borderActiveColor hover:-translate-y-1 transition-all"
           >
             <span className="text-black">{tool.icon}</span>
             <span className="flex flex-col items-start">

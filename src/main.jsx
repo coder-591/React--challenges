@@ -4,9 +4,12 @@ import "./index.css";
 import App from "./App.jsx";
 import { Provider } from "react-redux";
 import { store } from "../Store/Store.js";
+import { StoreProvider } from "./Components/Dynamic Form/Context/ContextApi.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <Provider store={store}>
+  // <Provider store={store}>
+  <StoreProvider>
     <App />
-  </Provider>,
+  </StoreProvider>,
+  // </Provider>,
 );

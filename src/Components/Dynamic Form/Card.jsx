@@ -1,29 +1,45 @@
-import { FileOutput, Plus } from "lucide-react";
-import React from "react";
+import { FileOutput, Plus, X } from "lucide-react";
 import Button from "./Button";
+import Header from "./Header";
+import Fields from "./Fields";
+import { StoreContext } from "./Context/ContextApi";
+import { useContext } from "react";
 
 const Card = () => {
+  const { isActive, setIsActive } = useContext(StoreContext);
   return (
     <>
-      <div className="flex items-center justify-center m-20 border-2 border-borderActiveColor rounded-2xl border-dashed bg-lightPurpleColor">
+      <div className="bg-[#03050349] absolute inset-0 flex justify-center items-center">
+        <div
+          className="bg-cardColor px-5 pt-8 w-120 h-120 rounded-xl border-2
+         border-borderColor shadow-sm"
+        >
+          <div className="flex flex-col  gap-4">
+            <div className="flex justify-between px-3">
+              <Header
+                heading={"Choose Field Type"}
+                textPara={"Select the type of field you want to add"}
+              />
+              <X
+                className="cursor-pointer"
+                onClick={() => setIsActive((prev) => !prev)}
+              />
+            </div>
+            <div className="h-75 overflow-scroll px-3 py-2 cardFieldScroll">
+              <Fields />
+            </div>
+          </div>
 
-        <div className="flex flex-col items-center justify-center gap-4 px-10 py-15">
-          <span className="flex items-center justify-center  w-13 h-13 rounded-lg bg-cardColor border  not-only:border-borderColor">
-            <FileOutput size={"28px"} />
-          </span>
-          <h3 className="text-ld font-semibold text-headingTextColor">
-            No fields added yet
-          </h3>
-          <p className="w-56 text-center text-sm font-medium text-bodyTextColor">
-            Drag fields from the left panel or click the button below
-          </p>
-
-          <Button
-            text={"Add Field"}
-            icon={<Plus size={"20px"} color="#fff" />}
-            color={"bg-btnBgPurpleColor"}
-            textColor={"text-btnPurpleTextColor"}
-          />
+          <div className="flex items-center justify-center">
+            <Button
+              text={"Cancel"}
+              color={"bg-btnBgColor"}
+              border={
+                "border border-borderColor hover:border-borderActiveColor"
+              }
+              setIsActive={setIsActive}
+            />
+          </div>
         </div>
       </div>
     </>

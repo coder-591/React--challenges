@@ -1,15 +1,11 @@
-import React from "react";
-
-const Header = ({heading,textPara}) => {
+const Header = ({ heading, textPara }) => {
   return (
     <>
-      <div className="flex flex-col gap-1">
-        <h1 className="font-semibold text-headingTextColor text-md uppercase">
-         {heading}
+      <div className="flex flex-col">
+        <h1 className="font-semibold text-headingTextColor text-md capitalize">
+          {heading}
         </h1>
-        <p className="text-bodyTextColor text-sm  font-medium">
-          {textPara}
-        </p>
+        <p className="text-bodyTextColor text-sm  font-medium">{textPara}</p>
       </div>
     </>
   );

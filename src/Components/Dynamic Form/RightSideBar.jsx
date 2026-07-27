@@ -1,5 +1,7 @@
 import { StickyNoteX } from "lucide-react";
 import Header from "./Header";
+import TextField from "./TextField";
+import { textFields, checkBoxFields, dropDownFields } from "./assets";
 
 const RightSideBar = () => {
   return (
@@ -18,6 +20,8 @@ const RightSideBar = () => {
             No field selected
           </p>
         </div>
+
+        {/* <TextField arr={textFields} /> */}
       </div>
     </>
   );

@@ -31,14 +31,14 @@ const Navbar = () => {
           <Button
             text={"Preview Form"}
             icon={<Eye size={"20px"} />}
-            color={"bg-btnBgColor"}
+            bgcolor={"bg-btnBgColor"}
             border = {"border border-borderColor hover:border-borderActiveColor"}
           />
 
           <Button
             text={"Save Form"}
             icon={<Save size={"20px"} color="#fff" />}
-            color={"bg-btnBgPurpleColor"}
+            bgcolor={"bg-btnBgPurpleColor"}
             textColor = {"text-btnPurpleTextColor"}
           />
 

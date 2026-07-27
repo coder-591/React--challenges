@@ -1,13 +1,13 @@
 import MainContainer from "./MainContainer";
 import Navbar from "./Navbar";
+import Card from "./Card";
 
 const ShowDynamicForm = () => {
   return (
     <>
-      <div className="">
-        <Navbar />
-        <MainContainer />
-      </div>
+      {/* <Card /> */}
+      <Navbar />
+      <MainContainer />
     </>
   );
 };

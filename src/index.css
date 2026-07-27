@@ -44,14 +44,14 @@ body {
 /* For dynamic form builder */
 @theme {
   --color-cardColor: #ffffff;
-  
+
   --color-hoverColor: #6d5df6;
   --color-purpleColor: #5b4ae8;
   --color-lightPurpleColor: #f4f2ff;
   --color-headingTextColor: #111827;
   --color-bodyTextColor: #4b5563;
   --color-placeHolderColor: #9ca3af;
-   --color-iconColor: #4b5563;
+  --color-iconColor: #4b5563;
 
   --color-borderActiveColor: #6d5df6;
   --color-borderColor: #9ca3af;
@@ -75,6 +75,10 @@ body {
   scroll-behavior: smooth;
 }
 .bottomContent::-webkit-scrollbar {
+  display: none;
+  scroll-behavior: smooth;
+}
+.cardFieldScroll::-webkit-scrollbar {
   display: none;
   scroll-behavior: smooth;
 }
