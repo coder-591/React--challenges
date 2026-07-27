@@ -6,7 +6,7 @@ import { StoreContext } from "./Context/ContextApi";
 import { useContext } from "react";
 
 const Card = () => {
-  const { isActive, setIsActive } = useContext(StoreContext);
+  const { isActive, setIsActive, addField } = useContext(StoreContext);
   return (
     <>
       <div className="bg-[#03050349] absolute inset-0 flex justify-center items-center">
