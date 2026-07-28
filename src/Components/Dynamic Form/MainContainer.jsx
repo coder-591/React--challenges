@@ -1,9 +1,12 @@
+import { useContext } from "react";
 import LeftSideBar from "./LeftSideBar";
 import MiddleBar from "./MiddleBar";
 import PreviewForm from "./PreviewForm";
 import RightSideBar from "./RightSideBar";
+import { StoreContext } from "./Context/ContextApi";
 
 const MainContainer = () => {
+  const { isFormActive } = useContext(StoreContext);
   return (
     <>
       <div className="grid grid-cols-[350px_1fr_350px] grid-rows-2 gap-2 mt-4 mx-2 ">
@@ -19,9 +22,11 @@ const MainContainer = () => {
           <RightSideBar />
         </div>
 
-        <div className="bottomContent bg-cardColor rounded-2xl shadow-sm col-span-3 min-h-40 mb-6">
-          <PreviewForm />
-        </div>
+        {isFormActive && (
+          <div className="bottomContent bg-cardColor rounded-2xl shadow-sm col-span-3 min-h-40 mb-6">
+            <PreviewForm />
+          </div>
+        )}
       </div>
     </>
   );

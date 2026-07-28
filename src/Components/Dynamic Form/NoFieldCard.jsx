@@ -24,7 +24,7 @@ const NoFieldCard = () => {
             icon={<Plus size={"20px"} color="#fff" />}
             bgcolor={"bg-btnBgPurpleColor"}
             textColor={"text-btnPurpleTextColor"}
-            setIsActive={setIsActive}
+            setterFunc={setIsActive}
           />
         </div>
       </div>

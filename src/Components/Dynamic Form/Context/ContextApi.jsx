@@ -1,8 +1,13 @@
 import { createContext, useState } from "react";
-import { ALargeSmall, SquareCheck, SquareChevronDown } from "lucide-react";
+import {
+  ALargeSmall,
+  LogOut,
+  SquareCheck,
+  SquareChevronDown,
+} from "lucide-react";
 
 export const StoreContext = createContext(null);
-// const fieldsArr = [];
+
 const toolBox = [
   {
     id: 1,
@@ -25,14 +30,30 @@ const toolBox = [
 ];
 
 export const StoreProvider = ({ children }) => {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(false); // to active the card
   const [fieldsArr, setFieldsArr] = useState([]);
+  const [currField, setCurrField] = useState({});
+  const [isFormActive, setIsFormActive] = useState(false);
+  const [titledOnTextField, setTitledOnTextField] = useState("Add title");
+  // for required toggle
+  const [isOn, setIsOn] = useState(false);
 
+  // to add fields in form and middle bar UI
   function addField(f) {
     setFieldsArr((prev) => [...prev, f]);
     setIsActive(false);
   }
-  console.log(fieldsArr);
+
+  function currentField(f) {
+    setCurrField(f);
+  }
+
+  function setTitle(title) {
+    setTitledOnTextField(title);
+  }
+  function toggleBtn() {
+    setIsOn((prev) => !prev);
+  }
 
   const values = {
     isActive,
@@ -40,6 +61,14 @@ export const StoreProvider = ({ children }) => {
     addField,
     fieldsArr,
     toolBox,
+    currentField,
+    currField,
+    isFormActive,
+    setIsFormActive,
+    setTitle,
+    titledOnTextField,
+    isOn,
+    toggleBtn
   };
   return (
     <StoreContext.Provider value={values}>{children}</StoreContext.Provider>

@@ -1,19 +1,11 @@
 import { ChevronDown, Trash2 } from "lucide-react";
-import Button from "./Button";
-import { useContext, useState } from "react";
+import { dropDownFields } from "./assets";
+import { useContext } from "react";
 import { StoreContext } from "./Context/ContextApi";
-import { textFields } from "./assets";
+import Button from "./Button";
 
-function TextField() {
-  const { currField, setTitle, toggleBtn,isOn } =
-    useContext(StoreContext);
-
-  const changeHandler = (e) => {
-    const currValue = e.target.placeholder;
-    if (currValue === "Enter Label") {
-      setTitle(e.target.value);
-    }
-  };
+const DropDownField = () => {
+  const { currField, toggleBtn, isOn } = useContext(StoreContext);
 
   return (
     <>
@@ -32,7 +24,7 @@ function TextField() {
           <ChevronDown className="absolute  right-4 top-8 cursor-pointer" />
         </div>
 
-        {textFields.map((f) => (
+        {dropDownFields.map((f) => (
           <div key={f} className="flex flex-col gap-1">
             <p className=" pl-2 font-semibold text-headingTextColor">{f}</p>
             {f === "Required" ? (
@@ -54,7 +46,6 @@ function TextField() {
               </div>
             ) : (
               <input
-                onChange={changeHandler}
                 type="text"
                 placeholder={`Enter ${f}`}
                 className="pl-3 py-2 text-sm outline-0 border border-borderColor rounded-xl focus:border-hoverColor"
@@ -73,6 +64,6 @@ function TextField() {
       </div>
     </>
   );
-}
+};
 
-export default TextField;
+export default DropDownField;

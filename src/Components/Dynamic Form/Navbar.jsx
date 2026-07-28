@@ -1,6 +1,9 @@
 import { Eye, Layers, Pencil, Redo2, Save, Undo2 } from "lucide-react";
 import Button from "./Button";
+import { useContext } from "react";
+import { StoreContext } from "./Context/ContextApi";
 const Navbar = () => {
+  const { isFormActive, setIsFormActive } = useContext(StoreContext);
   return (
     <>
       <div className="flex items-center justify-between px-4 bg-cardColor mx-2 mt-3 h-17 rounded-2xl shadow-sm">
@@ -28,20 +31,34 @@ const Navbar = () => {
             <Redo2 color="#4b5563" />
           </label>
 
-          <Button
-            text={"Preview Form"}
-            icon={<Eye size={"20px"} />}
-            bgcolor={"bg-btnBgColor"}
-            border = {"border border-borderColor hover:border-borderActiveColor"}
-          />
+          {isFormActive ? (
+            <Button
+              text={"Hide Form"}
+              icon={<Eye size={"20px"} />}
+              bgcolor={"bg-btnBgColor"}
+              border={
+                "border border-borderColor hover:border-borderActiveColor"
+              }
+              setterFunc={setIsFormActive}
+            />
+          ) : (
+            <Button
+              text={"Preview Form"}
+              icon={<Eye size={"20px"} />}
+              bgcolor={"bg-btnBgColor"}
+              border={
+                "border border-borderColor hover:border-borderActiveColor"
+              }
+              setterFunc={setIsFormActive}
+            />
+          )}
 
           <Button
             text={"Save Form"}
             icon={<Save size={"20px"} color="#fff" />}
             bgcolor={"bg-btnBgPurpleColor"}
-            textColor = {"text-btnPurpleTextColor"}
+            textColor={"text-btnPurpleTextColor"}
           />
-
         </div>
       </div>
     </>

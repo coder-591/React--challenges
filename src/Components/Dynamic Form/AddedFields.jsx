@@ -12,13 +12,16 @@ import { useContext } from "react";
 import { StoreContext } from "./Context/ContextApi";
 
 const AddedFields = () => {
-  const { setIsActive, fieldsArr } = useContext(StoreContext);
+  const { setIsActive, fieldsArr, titledOnTextField, currentField } =
+    useContext(StoreContext);
   return (
     <>
       <div className="px-5 pt-5 flex flex-col gap-5">
         <Header heading={"Form Fields"} textPara={"Drag fields to reorder"} />
+
         {fieldsArr.map((f) => (
           <div
+            onClick={() => currentField(f)}
             key={f.id}
             className="border border-borderColor shadow-sm px-4 py-4 cursor-pointer rounded-xl hover:border-borderActiveColor hover:-translate-y-1 transition-all flex items-center justify-between"
           >
@@ -31,7 +34,7 @@ const AddedFields = () => {
 
               <span className="flex flex-col items-start">
                 <h4 className="text-sm font-semibold text-headingTextColor">
-                  Add title
+                  {titledOnTextField}
                 </h4>
 
                 <p className="text-[13px] font-medium text-bodyTextColor">
@@ -58,7 +61,7 @@ const AddedFields = () => {
           bgcolor={"bg-lightPurpleColor"}
           textColor={"text-purpleColor"}
           border={"border border-dashed border-borderActiveColor"}
-          setIsActive={setIsActive}
+          setterFunc={setIsActive}
         />
       </div>
     </>
