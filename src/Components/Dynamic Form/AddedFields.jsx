@@ -12,11 +12,18 @@ import { useContext } from "react";
 import { StoreContext } from "./Context/ContextApi";
 
 const AddedFields = () => {
-  const { setIsActive, fieldsArr, titledOnTextField, currentField } =
-    useContext(StoreContext);
+  const {
+    setIsActive,
+    fieldsArr,
+    titledOnTextField,
+    titledOnCheckBoxField,
+    titledOnDropDownField,
+    currentField,
+  } = useContext(StoreContext);
+
   return (
     <>
-      <div className="px-5 pt-5 flex flex-col gap-5">
+      <div className="px-5 pt-5 flex flex-col gap-5 mb-6">
         <Header heading={"Form Fields"} textPara={"Drag fields to reorder"} />
 
         {fieldsArr.map((f) => (
@@ -34,7 +41,9 @@ const AddedFields = () => {
 
               <span className="flex flex-col items-start">
                 <h4 className="text-sm font-semibold text-headingTextColor">
-                  {titledOnTextField}
+                  {f.heading == "Text Field" && titledOnTextField}
+                  {f.heading == "Check Box" && titledOnCheckBoxField}
+                  {f.heading == "Drop Down" && titledOnDropDownField}
                 </h4>
 
                 <p className="text-[13px] font-medium text-bodyTextColor">

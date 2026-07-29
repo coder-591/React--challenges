@@ -1,11 +1,17 @@
-import { ChevronDown, Trash2 } from "lucide-react";
+import { ChevronDown, IdCard, Plus, Trash2, X } from "lucide-react";
 import { dropDownFields } from "./assets";
 import { useContext } from "react";
 import { StoreContext } from "./Context/ContextApi";
 import Button from "./Button";
 
 const DropDownField = () => {
-  const { currField, toggleBtn, isOn } = useContext(StoreContext);
+  const { currField, toggleBtn, setTitleD, isOn } = useContext(StoreContext);
+  const changeHandler = (e) => {
+    const currValue = e.target.placeholder;
+    if (currValue === "Enter Label") {
+      setTitleD(e.target.value);
+    }
+  };
 
   return (
     <>
@@ -46,6 +52,7 @@ const DropDownField = () => {
               </div>
             ) : (
               <input
+                onChange={changeHandler}
                 type="text"
                 placeholder={`Enter ${f}`}
                 className="pl-3 py-2 text-sm outline-0 border border-borderColor rounded-xl focus:border-hoverColor"
@@ -53,6 +60,31 @@ const DropDownField = () => {
             )}
           </div>
         ))}
+
+        <div className="flex flex-col gap-2">
+          <p className=" pl-2 font-semibold text-headingTextColor">Options</p>
+          {/* option container */}
+          <div
+            className="flex flex-col gap-2 px-3 py-2 w-full min-h-15 max-h-30 cursor-pointer
+            overflow-scroll scrollbar-none border bg-cardColor shadow-sm border-borderColor
+             rounded-xl "
+          >
+            <div className="flex items-center justify-between">
+              <span className="flex items-center gap-1">
+                <IdCard color="#7a7a7a" size={"22px"} />
+                <p className="text-sm font-medium capitalize"> pakistan</p>
+              </span>
+              <X size={"20px"} color="#7a7a7a" className="" />
+            </div>
+          </div>
+
+          <span className=" pl-2 flex items-center cursor-pointer">
+            <Plus size={"20px"} color="#5b4ae8" />
+            <h5 className="text-purpleColor font-semibold text-sm">
+              Add Option
+            </h5>
+          </span>
+        </div>
 
         <Button
           text={"Delete"}

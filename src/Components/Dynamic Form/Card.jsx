@@ -37,7 +37,7 @@ const Card = () => {
               border={
                 "border border-borderColor hover:border-borderActiveColor"
               }
-              setIsActive={setIsActive}
+              setterFunc={setIsActive}
             />
           </div>
         </div>

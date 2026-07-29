@@ -31,10 +31,15 @@ const toolBox = [
 
 export const StoreProvider = ({ children }) => {
   const [isActive, setIsActive] = useState(false); // to active the card
-  const [fieldsArr, setFieldsArr] = useState([]);
-  const [currField, setCurrField] = useState({});
-  const [isFormActive, setIsFormActive] = useState(false);
+  const [fieldsArr, setFieldsArr] = useState([]); // use for add the field in arr
+  const [currField, setCurrField] = useState({}); // change the rigthsidebar UI according to which field is selected
+  const [isFormActive, setIsFormActive] = useState(false); // to active the form preview
+  // to show dynamic title on added fields
   const [titledOnTextField, setTitledOnTextField] = useState("Add title");
+  const [titledOnCheckBoxField, setTitledOnCheckBoxField] =
+    useState("Add title");
+  const [titledOnDropDownField, setTitledOnDropDownField] =
+    useState("Add title");
   // for required toggle
   const [isOn, setIsOn] = useState(false);
 
@@ -43,14 +48,24 @@ export const StoreProvider = ({ children }) => {
     setFieldsArr((prev) => [...prev, f]);
     setIsActive(false);
   }
-
+  console.log(fieldsArr);
+  
   function currentField(f) {
     setCurrField(f);
   }
 
-  function setTitle(title) {
+  function setTitleT(title) {
     setTitledOnTextField(title);
   }
+
+  function setTitleC(title) {
+    setTitledOnCheckBoxField(title);
+  }
+
+  function setTitleD(title) {
+    setTitledOnDropDownField(title);
+  }
+
   function toggleBtn() {
     setIsOn((prev) => !prev);
   }
@@ -65,10 +80,14 @@ export const StoreProvider = ({ children }) => {
     currField,
     isFormActive,
     setIsFormActive,
-    setTitle,
+    setTitleT,
+    setTitleC,
+    setTitleD,
     titledOnTextField,
     isOn,
-    toggleBtn
+    toggleBtn,
+    titledOnCheckBoxField,
+    titledOnDropDownField
   };
   return (
     <StoreContext.Provider value={values}>{children}</StoreContext.Provider>
