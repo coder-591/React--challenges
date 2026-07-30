@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { StoreContext } from "./Context/ContextApi";
 
 const CheckBoxField = () => {
-  const { currField, toggleBtn,setTitleC, isOn } = useContext(StoreContext);
+  const { currField, toggleBtn, setTitleC, isOn } = useContext(StoreContext);
 
   const changeHandler = (e) => {
     const currValue = e.target.placeholder;
@@ -13,6 +13,7 @@ const CheckBoxField = () => {
       setTitleC(e.target.value);
     }
   };
+  
   return (
     <>
       <div className="flex flex-col gap-4 mt-6 mb-4">
@@ -52,7 +53,7 @@ const CheckBoxField = () => {
               </div>
             ) : (
               <input
-               onChange={changeHandler}
+                onChange={changeHandler}
                 type="text"
                 placeholder={`Enter ${f}`}
                 className="pl-3 py-2 text-sm outline-0 border border-borderColor rounded-xl focus:border-hoverColor"

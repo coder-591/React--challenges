@@ -19,17 +19,24 @@ const AddedFields = () => {
     titledOnCheckBoxField,
     titledOnDropDownField,
     currentField,
+    setId,
+    fieldId,
+    setKey,
   } = useContext(StoreContext);
 
+  const clickHandler = (f) => {
+    currentField(f);
+  };
+  
   return (
     <>
       <div className="px-5 pt-5 flex flex-col gap-5 mb-6">
         <Header heading={"Form Fields"} textPara={"Drag fields to reorder"} />
 
-        {fieldsArr.map((f) => (
+        {fieldsArr.map((f, idx) => (
           <div
-            onClick={() => currentField(f)}
-            key={f.id}
+            onClick={() => clickHandler(f)}
+            key={idx}
             className="border border-borderColor shadow-sm px-4 py-4 cursor-pointer rounded-xl hover:border-borderActiveColor hover:-translate-y-1 transition-all flex items-center justify-between"
           >
             <div className="flex items-center justify-start gap-3">

@@ -5,7 +5,9 @@ const Fields = () => {
   const { addField, toolBox, currentField } = useContext(StoreContext);
 
   const clickHandler = (tool) => {
+    // to add in arr to show in addedField components
     addField(tool);
+    // to show specific field ui according to field
     currentField(tool);
   };
 

@@ -34,13 +34,10 @@ const RightSideBar = () => {
           </div>
         )}
 
-        {currField.heading === "Check Box" && (
-          <CheckBoxField />
-          )}
+        {currField.heading === "Check Box" && <CheckBoxField />}
         {currField.heading === "Text Field" && <TextField />}
-        {currField.heading === "Drop Down" && (
-          <DropDownField />
-        )}
+        {currField.heading === "Drop Down" && <DropDownField />}
+
       </div>
     </>
   );
