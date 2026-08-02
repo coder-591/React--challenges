@@ -5,24 +5,25 @@ import {
   SquareCheck,
   SquareChevronDown,
 } from "lucide-react";
+import { idGenerator } from "../assets";
 
 export const StoreContext = createContext(null);
 
 const toolBox = [
   {
-    id: Math.floor(Math.random() * 10000),
+    id: 1,
     icon: <ALargeSmall size={"25px"} />,
     heading: "Text Field",
     desc: "Single line text input",
   },
   {
-    id: Math.floor(Math.random() * 10000),
+    id: 2,
     icon: <SquareCheck size={"25px"} />,
     heading: "Check Box",
     desc: "Allow multiple selections",
   },
   {
-    id: Math.floor(Math.random() * 10000),
+    id: 3,
     icon: <SquareChevronDown size={"25px"} />,
     heading: "Drop Down",
     desc: "Select from Options",
@@ -35,35 +36,27 @@ export const StoreProvider = ({ children }) => {
   const [currField, setCurrField] = useState({}); // change the rigthsidebar UI according to which field is selected
   const [isFormActive, setIsFormActive] = useState(false); // to active the form preview
   // to show dynamic title on added fields
-  const [titledOnTextField, setTitledOnTextField] = useState("Add title");
-  const [titledOnCheckBoxField, setTitledOnCheckBoxField] =
-    useState("Add title");
-  const [titledOnDropDownField, setTitledOnDropDownField] =
-    useState("Add title");
+  const [titledOnField, setTitledOnField] = useState({});
+
   // for required toggle
   const [isOn, setIsOn] = useState(false);
 
   // to add fields in form and middle bar UI
   function addField(f) {
-    setFieldsArr((prev) => [...prev, f]);
+    setFieldsArr((prev) => [...prev, { ...f, id: idGenerator() }]); // more to understand
     setIsActive(false);
   }
+
 
   function currentField(f) {
     setCurrField(f);
   }
 
-  function setTitleT(title) {
-    setTitledOnTextField(title);
+  function setTitle(title) {
+    setTitledOnField((prev) => ({ ...prev, [currField.id]: title }));
   }
 
-  function setTitleC(title) {
-    setTitledOnCheckBoxField(title);
-  }
-
-  function setTitleD(title) {
-    setTitledOnDropDownField(title);
-  }
+  console.log(titledOnField);
 
   function toggleBtn() {
     setIsOn((prev) => !prev);
@@ -79,14 +72,10 @@ export const StoreProvider = ({ children }) => {
     currField,
     isFormActive,
     setIsFormActive,
-    setTitleT,
-    setTitleC,
-    setTitleD,
-    titledOnTextField,
+    setTitle,
+    titledOnField,
     isOn,
     toggleBtn,
-    titledOnCheckBoxField,
-    titledOnDropDownField,
   };
   return (
     <StoreContext.Provider value={values}>{children}</StoreContext.Provider>

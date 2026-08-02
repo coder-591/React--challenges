@@ -5,11 +5,12 @@ import { StoreContext } from "./Context/ContextApi";
 import Button from "./Button";
 
 const DropDownField = () => {
-  const { currField, toggleBtn, setTitleD, isOn } = useContext(StoreContext);
+  const { currField, toggleBtn, setTitle, isOn } = useContext(StoreContext);
+
   const changeHandler = (e) => {
     const currValue = e.target.placeholder;
     if (currValue === "Enter Label") {
-      setTitleD(e.target.value);
+      setTitle(e.target.value);
     }
   };
 

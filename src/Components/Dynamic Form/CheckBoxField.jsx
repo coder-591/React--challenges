@@ -5,15 +5,15 @@ import { useContext } from "react";
 import { StoreContext } from "./Context/ContextApi";
 
 const CheckBoxField = () => {
-  const { currField, toggleBtn, setTitleC, isOn } = useContext(StoreContext);
+  const { currField, toggleBtn, setTitle, isOn } = useContext(StoreContext);
 
   const changeHandler = (e) => {
     const currValue = e.target.placeholder;
     if (currValue === "Enter Label") {
-      setTitleC(e.target.value);
+      setTitle(e.target.value);
     }
   };
-  
+
   return (
     <>
       <div className="flex flex-col gap-4 mt-6 mb-4">

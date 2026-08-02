@@ -5,14 +5,12 @@ import { StoreContext } from "./Context/ContextApi";
 import { textFields } from "./assets";
 
 function TextField() {
- 
-  const { currField, setTitleT, toggleBtn,isOn } =
-    useContext(StoreContext);
+  const { currField, setTitle, toggleBtn, isOn } = useContext(StoreContext);
 
   const changeHandler = (e) => {
     const currValue = e.target.placeholder;
     if (currValue === "Enter Label") {
-      setTitleT(e.target.value);
+      setTitle(e.target.value);
     }
   };
 
