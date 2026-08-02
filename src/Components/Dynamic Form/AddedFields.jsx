@@ -1,42 +1,22 @@
-import {
-  ALargeSmall,
-  Edit2,
-  GripVertical,
-  Pencil,
-  Plus,
-  Trash2,
-} from "lucide-react";
+import { GripVertical, Pencil, Plus, Trash2 } from "lucide-react";
 import Header from "./Header";
 import Button from "./Button";
 import { useContext } from "react";
 import { StoreContext } from "./Context/ContextApi";
 
 const AddedFields = () => {
-  const {
-    setIsActive,
-    fieldsArr,
-    titledOnTextField,
-    titledOnCheckBoxField,
-    titledOnDropDownField,
-    currentField,
-    setId,
-    fieldId,
-    setKey,
-  } = useContext(StoreContext);
+  const { setIsActive, fieldsArr, titledOnField, currentField } =
+    useContext(StoreContext);
 
-  const clickHandler = (f) => {
-    currentField(f);
-  };
-  
   return (
     <>
       <div className="px-5 pt-5 flex flex-col gap-5 mb-6">
         <Header heading={"Form Fields"} textPara={"Drag fields to reorder"} />
 
-        {fieldsArr.map((f, idx) => (
+        {fieldsArr.map((f) => (
           <div
-            onClick={() => clickHandler(f)}
-            key={idx}
+            onClick={() => currentField(f)}
+            key={f.id}
             className="border border-borderColor shadow-sm px-4 py-4 cursor-pointer rounded-xl hover:border-borderActiveColor hover:-translate-y-1 transition-all flex items-center justify-between"
           >
             <div className="flex items-center justify-start gap-3">
@@ -48,9 +28,7 @@ const AddedFields = () => {
 
               <span className="flex flex-col items-start">
                 <h4 className="text-sm font-semibold text-headingTextColor">
-                  {f.heading == "Text Field" && titledOnTextField}
-                  {f.heading == "Check Box" && titledOnCheckBoxField}
-                  {f.heading == "Drop Down" && titledOnDropDownField}
+                  {titledOnField[f.id]}
                 </h4>
 
                 <p className="text-[13px] font-medium text-bodyTextColor">
