@@ -5,12 +5,16 @@ import { StoreContext } from "./Context/ContextApi";
 import { textFields } from "./assets";
 
 function TextField() {
-  const { currField, setTitle, toggleBtn, isOn } = useContext(StoreContext);
+  const { currField, setTitle, toggleBtn, isOn, setPlaceHolder, fieldsArr } =
+    useContext(StoreContext);
 
   const changeHandler = (e) => {
     const currValue = e.target.placeholder;
     if (currValue === "Enter Label") {
       setTitle(e.target.value);
+    }
+    if (currValue === "Enter Place holder") {
+      setPlaceHolder(e.target.value);
     }
   };
 
@@ -26,39 +30,43 @@ function TextField() {
             readOnly
             type="text"
             placeholder={`${currField.heading}`}
-            className="w-full pl-3 py-2 text-sm outline-0 border border-borderColor rounded-xl focus:border-hoverColor"
+            className="inputCSS"
           />
           <ChevronDown className="absolute  right-4 top-8 cursor-pointer" />
-        </div>
+        </div >
 
-        {textFields.map((f) => (
-          <div key={f} className="flex flex-col gap-1">
-            <p className=" pl-2 font-semibold text-headingTextColor">{f}</p>
-            {f === "Required" ? (
-              <div className="flex items-center gap-2 ">
-                <div
-                  onClick={() => toggleBtn()}
-                  className={`w-12 h-7 rounded-2xl mx-2 border border-borderColor flex items-center justify-start px-0.5 cursor-pointer ${isOn ? "bg-hoverColor" : "bg-borderColor"} transition-all duration-300  `}
-                >
-                  <div
-                    className={`bg-cardColor w-6 h-6 rounded-full border border-borderColor ${isOn && "translate-x-4.5"} transition-all duration-300 `}
+        {fieldsArr.map((f) => (
+          <div key={f.id} className="flex flex-col gap-4">
+            {textFields.map((f) => (
+              <div key={f} className="flex flex-col gap-1">
+                <p className=" pl-2 font-semibold text-headingTextColor">{f}</p>
+                {f === "Required" ? (
+                  <div className="flex items-center gap-2 ">
+                    <div
+                      onClick={toggleBtn}
+                      className={`w-12 h-7 rounded-2xl mx-2 border border-borderColor flex items-center justify-start px-0.5 cursor-pointer ${isOn ? "bg-hoverColor" : "bg-borderColor"} transition-all duration-300  `}
+                    >
+                      <div
+                        className={`bg-cardColor w-6 h-6 rounded-full border border-borderColor ${isOn && "translate-x-4.5"} transition-all duration-300 `}
+                      />
+                    </div>
+
+                    {isOn && (
+                      <p className="text-[13px] font-medium text-bodyTextColor">
+                        This field is required
+                      </p>
+                    )}
+                  </div>
+                ) : (
+                  <input
+                    onChange={changeHandler}
+                    type="text"
+                    placeholder={`Enter ${f}`}
+                    className="pl-3 py-2 text-sm outline-0 border border-borderColor rounded-xl focus:border-hoverColor"
                   />
-                </div>
-
-                {isOn && (
-                  <p className="text-[13px] font-medium text-bodyTextColor">
-                    This field is required
-                  </p>
                 )}
               </div>
-            ) : (
-              <input
-                onChange={changeHandler}
-                type="text"
-                placeholder={`Enter ${f}`}
-                className="pl-3 py-2 text-sm outline-0 border border-borderColor rounded-xl focus:border-hoverColor"
-              />
-            )}
+            ))}
           </div>
         ))}
 

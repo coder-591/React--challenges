@@ -82,3 +82,10 @@ body {
   display: none;
   scroll-behavior: smooth;
 }
+
+
+@layer utilities {
+  .inputCSS{
+    @apply w-full pl-3 py-2 text-sm outline-0 border border-borderColor rounded-xl focus:border-hoverColor
+  }
+}

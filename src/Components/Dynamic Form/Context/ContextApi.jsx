@@ -37,30 +37,41 @@ export const StoreProvider = ({ children }) => {
   const [isFormActive, setIsFormActive] = useState(false); // to active the form preview
   // to show dynamic title on added fields
   const [titledOnField, setTitledOnField] = useState({});
+  const [placeHolderOnField, setPlaceHolderOnField] = useState({});
+  const [requiredOnField, setRequiredOnField] = useState({});
 
   // for required toggle
   const [isOn, setIsOn] = useState(false);
 
   // to add fields in form and middle bar UI
   function addField(f) {
+    // const newObj = { ...f, id: idGenerator()}
     setFieldsArr((prev) => [...prev, { ...f, id: idGenerator() }]); // more to understand
     setIsActive(false);
   }
 
-
   function currentField(f) {
     setCurrField(f);
   }
-
+  // set title for indivual fields
   function setTitle(title) {
     setTitledOnField((prev) => ({ ...prev, [currField.id]: title }));
   }
+  function setPlaceHolder(placeHolder) {
+    setPlaceHolderOnField((prev) => ({ ...prev, [currField.id]: placeHolder }));
+  }
+  function setRequired(value) {
+    setRequiredOnField((prev) => ({ ...prev, [currField.id]: value || false }));
+  }
 
-  console.log(titledOnField);
+  // console.log(requiredOnField);
 
   function toggleBtn() {
     setIsOn((prev) => !prev);
   }
+
+ 
+
 
   const values = {
     isActive,
@@ -74,8 +85,11 @@ export const StoreProvider = ({ children }) => {
     setIsFormActive,
     setTitle,
     titledOnField,
+    placeHolderOnField,
     isOn,
     toggleBtn,
+    setPlaceHolder,
+    setRequired,
   };
   return (
     <StoreContext.Provider value={values}>{children}</StoreContext.Provider>

@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { StoreContext } from "./Context/ContextApi";
 
 const Fields = () => {
-  const { addField, toolBox, currentField } = useContext(StoreContext);
+  const { addField, toolBox, currentField, toggleBtn } =
+    useContext(StoreContext);
 
   const clickHandler = (tool) => {
     // to add in arr to show in addedField components
