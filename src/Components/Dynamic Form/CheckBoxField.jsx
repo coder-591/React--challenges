@@ -4,8 +4,9 @@ import Button from "./Button";
 import { useContext } from "react";
 import { StoreContext } from "./Context/ContextApi";
 
-const CheckBoxField = () => {
-  const { currField, toggleBtn, setTitle, isOn } = useContext(StoreContext);
+const CheckBoxField = ({ id }) => {
+  const { currField, toggleBtn, setTitle, requiredOnField } =
+    useContext(StoreContext);
 
   const changeHandler = (e) => {
     const currValue = e.target.placeholder;
@@ -37,15 +38,15 @@ const CheckBoxField = () => {
             {f === "Required" ? (
               <div className="flex items-center gap-2 ">
                 <div
-                  onClick={() => toggleBtn()}
-                  className={`w-12 h-7 rounded-2xl mx-2 border border-borderColor flex items-center justify-start px-0.5 cursor-pointer ${isOn ? "bg-hoverColor" : "bg-borderColor"} transition-all duration-300  `}
+                  onClick={toggleBtn}
+                  className={`w-12 h-7 rounded-2xl mx-2 border border-borderColor flex items-center justify-start px-0.5 cursor-pointer ${requiredOnField[id] ? "bg-hoverColor" : "bg-borderColor"} transition-all duration-300  `}
                 >
                   <div
-                    className={`bg-cardColor w-6 h-6 rounded-full border border-borderColor ${isOn && "translate-x-4.5"} transition-all duration-300 `}
+                    className={`bg-cardColor w-6 h-6 rounded-full border border-borderColor ${requiredOnField[id] && "translate-x-4.5"} transition-all duration-300 `}
                   />
                 </div>
 
-                {isOn && (
+                {requiredOnField[id] && (
                   <p className="text-[13px] font-medium text-bodyTextColor">
                     This field is required
                   </p>

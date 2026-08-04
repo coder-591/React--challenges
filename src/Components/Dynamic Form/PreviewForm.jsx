@@ -5,11 +5,16 @@ import { ChevronDown, Save } from "lucide-react";
 import Button from "./Button";
 
 const PreviewForm = () => {
-  const { fieldsArr, currField, titledOnField, placeHolderOnField, isOn } =
-    useContext(StoreContext);
+  const {
+    fieldsArr,
+    currField,
+    titledOnField,
+    placeHolderOnField,
+    requiredOnField,
+  } = useContext(StoreContext);
   return (
     <>
-      <div className="px-5 pt-5 flex flex-col gap-4">
+      <div className="px-5 pt-5 flex flex-col gap-4 mb-4">
         <Header
           heading={"Form Preview"}
           textPara={"This is how your form will look"}
@@ -31,7 +36,9 @@ const PreviewForm = () => {
                     <p className=" pl-2 font-semibold text-headingTextColor">
                       {titledOnField[f.id]}
                     </p>
-                    {isOn && <span className="text-red-600">*</span>}
+                    {requiredOnField[f.id] && (
+                      <span className="text-red-600">*</span>
+                    )}
                   </label>
                   <input
                     type="text"
@@ -47,7 +54,9 @@ const PreviewForm = () => {
                     <p className=" pl-2 font-semibold text-headingTextColor">
                       {titledOnField[f.id]}
                     </p>
-                    {isOn && <span className="text-red-600">*</span>}
+                    {requiredOnField[f.id] && (
+                      <span className="text-red-600">*</span>
+                    )}
                   </label>
                   <input
                     readOnly
@@ -65,12 +74,15 @@ const PreviewForm = () => {
                   <p className="font-semibold text-headingTextColor">
                     {titledOnField[f.id]}
                   </p>
-                  {isOn && <span className="text-red-600">*</span>}
+                  {requiredOnField[f.id] && (
+                    <span className="text-red-600">*</span>
+                  )}
                 </div>
               )}
             </div>
           ))}
         </div>
+
         {fieldsArr.length > 0 && (
           <Button
             text={"Save Form"}

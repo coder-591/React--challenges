@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import {
   ALargeSmall,
   LogOut,
@@ -43,6 +43,10 @@ export const StoreProvider = ({ children }) => {
   // for required toggle
   const [isOn, setIsOn] = useState(false);
 
+  useEffect(() => {
+    setRequiredOnField((prev) => ({ ...prev, [currField.id]: isOn }));
+  }, [isOn]);
+
   // to add fields in form and middle bar UI
   function addField(f) {
     // const newObj = { ...f, id: idGenerator()}
@@ -54,17 +58,14 @@ export const StoreProvider = ({ children }) => {
     setCurrField(f);
   }
   // set title for indivual fields
+  
   function setTitle(title) {
     setTitledOnField((prev) => ({ ...prev, [currField.id]: title }));
   }
+
   function setPlaceHolder(placeHolder) {
     setPlaceHolderOnField((prev) => ({ ...prev, [currField.id]: placeHolder }));
   }
-  function setRequired(value) {
-    setRequiredOnField((prev) => ({ ...prev, [currField.id]: value || false }));
-  }
-
-  // console.log(requiredOnField);
 
   function toggleBtn() {
     setIsOn((prev) => !prev);
@@ -89,7 +90,7 @@ export const StoreProvider = ({ children }) => {
     isOn,
     toggleBtn,
     setPlaceHolder,
-    setRequired,
+    requiredOnField,
   };
   return (
     <StoreContext.Provider value={values}>{children}</StoreContext.Provider>

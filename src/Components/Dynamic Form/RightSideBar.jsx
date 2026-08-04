@@ -34,10 +34,21 @@ const RightSideBar = () => {
           </div>
         )}
 
-        {currField.heading === "Check Box" && <CheckBoxField />}
-        {currField.heading === "Text Field" && <TextField />}
-        {currField.heading === "Drop Down" && <DropDownField />}
+        {fieldsArr.map((f) => (
+          <div key={f.id}>
+            {currField.heading === "Text Field" && currField.id === f.id && (
+              <TextField id={f.id} />
+            )}
 
+            {currField.heading === "Check Box" && currField.id === f.id && (
+              <CheckBoxField id={f.id} />
+            )}
+
+            {currField.heading === "Drop Down" && currField.id === f.id && (
+              <DropDownField id={f.id} />
+            )}
+          </div>
+        ))}
       </div>
     </>
   );

@@ -8,6 +8,10 @@ const AddedFields = () => {
   const { setIsActive, fieldsArr, titledOnField, currentField } =
     useContext(StoreContext);
 
+  const clickHandler = (f) => {
+    currentField(f);
+  };
+
   return (
     <>
       <div className="px-5 pt-5 flex flex-col gap-5 mb-6">
@@ -15,7 +19,7 @@ const AddedFields = () => {
 
         {fieldsArr.map((f) => (
           <div
-            onClick={() => currentField(f)}
+            onClick={() => clickHandler(f)}
             key={f.id}
             className="border border-borderColor shadow-sm px-4 py-4 cursor-pointer rounded-xl hover:border-borderActiveColor hover:-translate-y-1 transition-all flex items-center justify-between"
           >
