@@ -7,10 +7,10 @@ const NoFieldCard = () => {
   const { setIsActive } = useContext(StoreContext);
   return (
     <>
-      <div className="flex items-center justify-center m-20 border-2 border-borderActiveColor rounded-2xl border-dashed bg-lightPurpleColor">
+      <div className="flex items-center justify-center m-20 border border-borderColor rounded-2xl border-dashed bg-lightPurpleColor dark:bg-lightPurpleColor shadow-sm dark:border-borderColor">
         <div className="flex flex-col items-center justify-center gap-4 px-10 py-15">
-          <span className="flex items-center justify-center  w-13 h-13 rounded-lg bg-cardColor border  not-only:border-borderColor">
-            <FileOutput size={"28px"} />
+          <span className="flex items-center justify-center  w-13 h-13 rounded-lg bg-cardColor border not-only:border-borderColor dark:bg-cardColor dark:border-borderColor">
+            <FileOutput size={"28px"} className="text-iconColor" />
           </span>
           <h3 className="font-semibold text-headingTextColor">
             No fields added yet
@@ -21,7 +21,7 @@ const NoFieldCard = () => {
 
           <Button
             text={"Add Field"}
-            icon={<Plus size={"20px"} color="#fff" />}
+            icon={<Plus size={"20px"} className="text-white" />}
             bgcolor={"bg-btnBgPurpleColor"}
             textColor={"text-btnPurpleTextColor"}
             setterFunc={setIsActive}

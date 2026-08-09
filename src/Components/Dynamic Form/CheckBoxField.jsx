@@ -27,7 +27,7 @@ const CheckBoxField = ({ id }) => {
             readOnly
             type="text"
             placeholder={`${currField.heading}`}
-            className="w-full pl-3 py-2 text-sm outline-0 border border-borderColor rounded-xl focus:border-hoverColor"
+            className="w-full pl-3 py-2 text-sm outline-0 border border-borderColor rounded-xl focus:border-hoverColor bg-cardColor text-headingTextColor placeholder-placeHolderColor"
           />
           <ChevronDown className="absolute  right-4 top-8 cursor-pointer" />
         </div>
@@ -57,7 +57,7 @@ const CheckBoxField = ({ id }) => {
                 onChange={changeHandler}
                 type="text"
                 placeholder={`Enter ${f}`}
-                className="pl-3 py-2 text-sm outline-0 border border-borderColor rounded-xl focus:border-hoverColor"
+                className="pl-3 py-2 text-sm outline-0 border border-borderColor rounded-xl focus:border-hoverColor bg-cardColor text-headingTextColor placeholder-placeHolderColor"
               />
             )}
           </div>
@@ -65,7 +65,7 @@ const CheckBoxField = ({ id }) => {
 
         <Button
           text={"Delete"}
-          icon={<Trash2 size={"20px"} color="#ff0000" />}
+          icon={<Trash2 size={"20px"} className="text-red-500" />}
           textColor={"text-red-600"}
           border={"border border-red-400 hover:border-red-600"}
           bgcolor={"hover:bg-red-100"}

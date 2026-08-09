@@ -30,7 +30,7 @@ const DropDownField = ({id}) => {
             readOnly
             type="text"
             placeholder={`${currField.heading}`}
-            className="w-full pl-3 py-2 text-sm outline-0 border border-borderColor rounded-xl focus:border-hoverColor"
+            className="w-full pl-3 py-2 text-sm outline-0 border border-borderColor rounded-xl focus:border-hoverColor bg-cardColor text-headingTextColor placeholder-placeHolderColor"
           />
           <ChevronDown className="absolute  right-4 top-8 cursor-pointer" />
         </div>
@@ -60,7 +60,7 @@ const DropDownField = ({id}) => {
                 onChange={changeHandler}
                 type="text"
                 placeholder={`Enter ${f}`}
-                className="pl-3 py-2 text-sm outline-0 border border-borderColor rounded-xl focus:border-hoverColor"
+                className="pl-3 py-2 text-sm outline-0 border border-borderColor rounded-xl focus:border-hoverColor bg-cardColor text-headingTextColor placeholder-placeHolderColor"
               />
             )}
           </div>
@@ -76,15 +76,15 @@ const DropDownField = ({id}) => {
           >
             <div className="flex items-center justify-between">
               <span className="flex items-center gap-1">
-                <IdCard color="#7a7a7a" size={"22px"} />
+                <IdCard className="text-iconColor" size={"22px"} />
                 <p className="text-sm font-medium capitalize"> pakistan</p>
               </span>
-              <X size={"20px"} color="#7a7a7a" className="" />
+              <X size={"20px"} className="text-iconColor" />
             </div>
           </div>
 
           <span className=" pl-2 flex items-center cursor-pointer">
-            <Plus size={"20px"} color="#5b4ae8" />
+            <Plus size={"20px"} className="text-iconColor" />
             <h5 className="text-purpleColor font-semibold text-sm">
               Add Option
             </h5>
@@ -93,7 +93,7 @@ const DropDownField = ({id}) => {
 
         <Button
           text={"Delete"}
-          icon={<Trash2 size={"20px"} color="#ff0000" />}
+          icon={<Trash2 size={"20px"} className="text-red-500" />}
           textColor={"text-red-600"}
           border={"border border-red-400 hover:border-red-600"}
           bgcolor={"hover:bg-red-100"}

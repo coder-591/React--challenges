@@ -21,7 +21,7 @@ const PreviewForm = () => {
         />
 
         {fieldsArr.length === 0 && (
-          <div className="bg-lightPurpleColor w-full py-4 px-4 rounded-lg border border-borderColor text-center">
+          <div className="bg-lightPurpleColor dark:bg-lightPurpleColor w-full py-4 px-4 rounded-lg border border-borderColor dark:border-borderColor text-center">
             <p className="text-bodyTextColor text-sm font-medium">
               Add fields to see preview
             </p>
@@ -29,7 +29,7 @@ const PreviewForm = () => {
         )}
         <div className="flex flex-col gap-4 mb-6">
           {fieldsArr?.map((f) => (
-            <div key={f.id} className="text-black">
+            <div key={f.id} className="text-headingTextColor">
               {f.heading === "Text Field" && (
                 <div className="flex flex-col gap-1">
                   <label className="flex items-center gap-1">
@@ -86,7 +86,7 @@ const PreviewForm = () => {
         {fieldsArr.length > 0 && (
           <Button
             text={"Save Form"}
-            icon={<Save size={"20px"} color="#fff" />}
+            icon={<Save size={"20px"} className="text-white" />}
             bgcolor={"bg-btnBgPurpleColor"}
             textColor={"text-btnPurpleTextColor"}
           />

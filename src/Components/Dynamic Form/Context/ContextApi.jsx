@@ -43,9 +43,26 @@ export const StoreProvider = ({ children }) => {
   // for required toggle
   const [isOn, setIsOn] = useState(false);
 
+  // theme toggle
+
+  const [isMode, setIsMode] = useState(
+    localStorage.getItem("theme") || "light",
+  );
+  const [isthemeActive, setIsThemeActive] = useState(false);
+
   useEffect(() => {
-    setRequiredOnField((prev) => ({ ...prev, [currField.id]: isOn }));
+    if (currField.id) {
+      setRequiredOnField((prev) => ({ ...prev, [currField.id]: isOn }));
+    }
   }, [isOn]);
+
+  useEffect(() => {
+    const mode = isMode;
+    if (mode === "dark") {
+      setIsThemeActive(true);
+    }
+    localStorage.setItem("theme", mode);
+  }, [isMode]);
 
   // to add fields in form and middle bar UI
   function addField(f) {
@@ -58,7 +75,7 @@ export const StoreProvider = ({ children }) => {
     setCurrField(f);
   }
   // set title for indivual fields
-  
+
   function setTitle(title) {
     setTitledOnField((prev) => ({ ...prev, [currField.id]: title }));
   }
@@ -67,12 +84,14 @@ export const StoreProvider = ({ children }) => {
     setPlaceHolderOnField((prev) => ({ ...prev, [currField.id]: placeHolder }));
   }
 
+  function toggleTheme() {
+    setIsThemeActive((prev) => !prev);
+    setIsMode((prev) => (prev === "light" ? "dark" : "light"));
+  }
+
   function toggleBtn() {
     setIsOn((prev) => !prev);
   }
-
- 
-
 
   const values = {
     isActive,
@@ -91,6 +110,9 @@ export const StoreProvider = ({ children }) => {
     toggleBtn,
     setPlaceHolder,
     requiredOnField,
+    toggleTheme,
+    isthemeActive,
+    isMode,
   };
   return (
     <StoreContext.Provider value={values}>{children}</StoreContext.Provider>

@@ -21,12 +21,12 @@ const AddedFields = () => {
           <div
             onClick={() => clickHandler(f)}
             key={f.id}
-            className="border border-borderColor shadow-sm px-4 py-4 cursor-pointer rounded-xl hover:border-borderActiveColor hover:-translate-y-1 transition-all flex items-center justify-between"
+            className="border border-borderColor shadow-sm px-4 py-4 cursor-pointer rounded-xl hover:border-borderActiveColor hover:-translate-y-1 transition-all flex items-center justify-between dark:border-borderColor dark:bg-cardColor"
           >
             <div className="flex items-center justify-start gap-3">
-              <GripVertical color="#7a7a7a" />
+              <GripVertical className="text-iconColor" />
 
-              <span className="text-black w-10 h-10 flex items-center justify-center border border-borderColor bg-lightPurpleColor shadow-sm rounded-xl">
+              <span className="text-headingTextColor w-10 h-10 flex items-center justify-center border border-borderColor bg-lightPurpleColor dark:bg-lightPurpleColor shadow-sm rounded-xl">
                 {f.icon}
               </span>
 
@@ -42,12 +42,12 @@ const AddedFields = () => {
             </div>
 
             <div className="flex items-center justify-end gap-2">
-              <span className="text-black w-10 h-10 flex items-center justify-center border border-borderColor bg-lightPurpleColor shadow-sm rounded-xl">
-                <Pencil size={"20px"} />
+              <span className="text-headingTextColor w-10 h-10 flex items-center justify-center border border-borderColor bg-lightPurpleColor shadow-sm rounded-xl">
+                <Pencil size={"20px"} className="text-iconColor" />
               </span>
 
-              <span className="text-black w-10 h-10 flex items-center justify-center border border-borderColor bg-lightPurpleColor shadow-sm rounded-xl">
-                <Trash2 size={"20px"} />
+              <span className="text-headingTextColor w-10 h-10 flex items-center justify-center border border-borderColor bg-lightPurpleColor shadow-sm rounded-xl">
+                <Trash2 size={"20px"} className="text-iconColor" />
               </span>
             </div>
           </div>
@@ -55,7 +55,7 @@ const AddedFields = () => {
 
         <Button
           text={"Add Field"}
-          icon={<Plus size={"20px"} color="#5b4ae8" />}
+          icon={<Plus size={"20px"} className="text-iconColor" />}
           bgcolor={"bg-lightPurpleColor"}
           textColor={"text-purpleColor"}
           border={"border border-dashed border-borderActiveColor"}
