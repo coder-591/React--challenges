@@ -7,6 +7,7 @@ import InfiniteFeed from "./Components/InfiniteFeed/InfiniteFeed";
 import SortingTable from "./Components/SortingTable/SortingTable";
 import MultiStepForms from "./Components/MultiStepForm/MultiStepForms";
 import ShowDynamicForm from "./Components/Dynamic Form/ShowDynamicForm";
+import Accordion from "./Components/Accordion/Accordion";
 
 const App = () => {
   return (
@@ -24,8 +25,10 @@ const App = () => {
       {/* <SortingTable /> */}
       {/* # 7 problem Multi step form */}
       {/* <MultiStepForms /> */}
-      {/* # 8 problem Dynamic form builder */}
-      <ShowDynamicForm />
+      {/* # 8 problem Dynamic form builder and #9 THEME toggle in it */}
+      {/* <ShowDynamicForm /> */}
+      {/* # 10 problem Multi step form */}
+      <Accordion />
     </>
   );
 };

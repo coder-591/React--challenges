@@ -93,6 +93,8 @@ export const StoreProvider = ({ children }) => {
     setIsOn((prev) => !prev);
   }
 
+  // console.log(isOn);
+
   const values = {
     isActive,
     setIsActive,
