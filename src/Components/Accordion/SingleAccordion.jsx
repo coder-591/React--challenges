@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 const SingleAccordion = () => {
   const [quotes, setQuotes] = useState([]);
   const [isActiveId, setIsActiveId] = useState(0);
-  const [isActive, setIsActive] = useState(false);
-  const [currActive, setCurrActive] = useState({});
 
   useEffect(() => {
     fetch("https://dummyjson.com/quotes")
@@ -13,33 +11,13 @@ const SingleAccordion = () => {
       .then((data) => setQuotes(data.quotes));
   }, []);
 
-  // when we need one thing to active at a time
-  useEffect(() => {
-    for (let i = 0; i < quotes.length; i++) {
-      if (quotes[i].id === isActiveId) {
-        setCurrActive((prev) => ({
-          ...prev,
-          [isActiveId]: true,
-        }));
-      } else {
-        setCurrActive((prev) => ({
-          ...prev,
-          [quotes[i].id]: false,
-        }));
+  const clickHandler = (id) => {
+    setIsActiveId((prev) => {
+      if (prev === id) {
+        return null;
       }
-    }
-  }, [isActiveId]);
-
-  const unActiveAccordion = () => {
-    setCurrActive((prev) => ({
-      ...prev,
-      [isActiveId]: isActive, // => ?
-    }));
-  };
-
-  const clickHandler = (quote) => {
-    setIsActiveId(quote.id);
-    setIsActive((prev) => !prev);
+      return id;
+    });
   };
 
   return (
@@ -47,29 +25,28 @@ const SingleAccordion = () => {
       {quotes.map((quote) => (
         <div
           onClick={() => {
-            clickHandler(quote);
-            unActiveAccordion();
+            clickHandler(quote.id);
           }}
           key={quote.id}
-          className={`bg-cardColor w-[40%] ${currActive[quote.id] ? "h-60" : "h-15"} rounded-2xl shadow-sm border border-borderColor px-6 flex justify-between transition-all duration-500`}
+          className={`bg-cardColor w-[40%] ${isActiveId === quote.id ? "h-60" : "h-15"} rounded-2xl shadow-sm border border-borderColor px-6 flex justify-between transition-all duration-500`}
         >
           <div className="flex flex-col gap-1 justify-between mt-4 mb-4">
             <h1 className="font-semibold text-md">Quote # {quote.id}</h1>
 
             <p
-              className={`font-semibold text-sm text-bodyTextColor w-100 ${currActive[quote.id] ? "block" : "hidden"}  transition-all duration-700`}
+              className={`font-semibold text-sm text-bodyTextColor w-100 ${isActiveId === quote.id ? "block" : "hidden"}  transition-all duration-700`}
             >
               {quote.quote}
             </p>
 
             <p
-              className={`font-medium text-sm text-bodyTextColor ${currActive[quote.id] ? "block" : "hidden"} transition-all duration-700`}
+              className={`font-medium text-sm text-bodyTextColor ${isActiveId === quote.id ? "block" : "hidden"} transition-all duration-700`}
             >
               Author : {quote.author}
             </p>
           </div>
 
-          {currActive[quote.id] ? (
+          {isActiveId === quote.id ? (
             <X size={"20px"} className="mt-4 transition-all duration-700" />
           ) : (
             <ChevronDown

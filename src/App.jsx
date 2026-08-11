@@ -8,6 +8,7 @@ import SortingTable from "./Components/SortingTable/SortingTable";
 import MultiStepForms from "./Components/MultiStepForm/MultiStepForms";
 import ShowDynamicForm from "./Components/Dynamic Form/ShowDynamicForm";
 import Accordion from "./Components/Accordion/Accordion";
+import FaqContainer from "./Components/FAQSearch/FaqContainer";
 
 const App = () => {
   return (
@@ -28,7 +29,9 @@ const App = () => {
       {/* # 8 problem Dynamic form builder and #9 THEME toggle in it */}
       {/* <ShowDynamicForm /> */}
       {/* # 10 problem Multi step form */}
-      <Accordion />
+      {/* <Accordion /> */}
+       {/* # 11 problem Multi step form */}
+       <FaqContainer />
     </>
   );
 };
