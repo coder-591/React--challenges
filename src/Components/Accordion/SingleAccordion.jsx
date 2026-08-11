@@ -13,6 +13,7 @@ const SingleAccordion = () => {
       .then((data) => setQuotes(data.quotes));
   }, []);
 
+  // when we need one thing to active at a time
   useEffect(() => {
     for (let i = 0; i < quotes.length; i++) {
       if (quotes[i].id === isActiveId) {
@@ -27,10 +28,18 @@ const SingleAccordion = () => {
         }));
       }
     }
-  }, [isActive]);
+  }, [isActiveId]);
+
+  const unActiveAccordion = () => {
+    setCurrActive((prev) => ({
+      ...prev,
+      [isActiveId]: isActive, // => ?
+    }));
+  };
 
   const clickHandler = (quote) => {
     setIsActiveId(quote.id);
+    setIsActive((prev) => !prev);
   };
 
   return (
@@ -39,9 +48,8 @@ const SingleAccordion = () => {
         <div
           onClick={() => {
             clickHandler(quote);
-            setIsActive((prev) => !prev);
+            unActiveAccordion();
           }}
-          
           key={quote.id}
           className={`bg-cardColor w-[40%] ${currActive[quote.id] ? "h-60" : "h-15"} rounded-2xl shadow-sm border border-borderColor px-6 flex justify-between transition-all duration-500`}
         >
