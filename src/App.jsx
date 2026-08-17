@@ -10,6 +10,7 @@ import ShowDynamicForm from "./Components/Dynamic Form/ShowDynamicForm";
 import Accordion from "./Components/Accordion/Accordion";
 import FaqContainer from "./Components/FAQSearch/FaqContainer";
 import Notification from "./Components/Notification/Notification";
+import DynamicTabs from "./Components/Dynamic Tabs/DynamicTabs";
 
 const App = () => {
   return (
@@ -34,7 +35,9 @@ const App = () => {
       {/* # 11 problem Multi step form */}
       {/* <FaqContainer /> */}  
       {/* # 12 problem Multi step form */}
-       <Notification />
+      {/* <Notification /> */}
+      {/* # 13 problem Multi step form */}
+      <DynamicTabs />
     </>
   );
 };

@@ -113,3 +113,4 @@ export const notifications = [
     type: "info",
   },
 ];
+
