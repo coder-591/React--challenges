@@ -1,5 +1,5 @@
 import { Plus, X } from "lucide-react";
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import { idGenerator } from "../../assets";
 
 const Tabs = () => {
@@ -22,14 +22,16 @@ const Tabs = () => {
   };
 
   const removeTabs = (id) => {
+    if (activeTab === tabs[tabs.length - 1]?.id) {
+      setActiveTab(tabs[tabs.length - 1 - 1].id);
+    }
+
     setTabs((prev) => {
       return prev.filter((tab) => tab.id !== id);
     });
-    setTabCount((prev) => prev - 1);
-    setActiveTab((prev) => (prev = tabs[tabs.length - 1 - 1]?.id));
-  };
 
-  console.log("Active tab id : ", activeTab);
+    setTabCount((prev) => prev - 1);
+  };
 
   return (
     <div className="px-4 flex flex-col gap-9">
