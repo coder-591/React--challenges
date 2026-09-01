@@ -18,7 +18,7 @@ const Gallery = () => {
             <div className="flex gap-7 ">
               <SideImages photos={photos} imgId={imgId} setImgId={setImgId} />
               <PreviewImg imgId={imgId} photos={photos} />
-              <Triggers />
+              <Triggers imgId={imgId} setImgId={setImgId} photos={photos} />
             </div>
           </div>
 

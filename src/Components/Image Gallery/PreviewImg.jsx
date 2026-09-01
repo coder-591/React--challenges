@@ -4,10 +4,10 @@ const PreviewImg = ({ photos, imgId }) => {
   return (
     <>
       <div>
-        {photos.map(
+        {photos?.map(
           (photo) =>
             photo.id === imgId.id && (
-              <div key={photo.id} className="">
+              <div key={photo.id}>
                 <img
                   src={photo.img}
                   alt={`Photo ${photo.count}`}

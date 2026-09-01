@@ -8,13 +8,13 @@ const SideImages = ({ photos, setImgId ,imgId }) => {
             className="relative"
             onClick={() => setImgId(photo)}
           >
-            <span className={` ${imgId.id === photo.id ? "bg-purpleColor":"bg-headingTextColor "} absolute top-2 left-5 w-8 h-8 flex items-center justify-center rounded-2xl font-semibold text-sm text-white`}>
+            <span className={`${imgId.id === photo.id ? "bg-purpleColor":"bg-headingTextColor"} absolute top-2 left-5 w-8 h-8 flex items-center justify-center rounded-2xl font-semibold text-sm text-white`}>
               {photo.count}
             </span>
             <img
               src={photo.img}
               alt={`Photo ${photo.count}`}
-              className={` cursor-pointer w-60 h-40 object-cover rounded-2xl`}
+              className="cursor-pointer w-60 h-40 object-cover rounded-2xl"
             />
           </div>
         ))}
