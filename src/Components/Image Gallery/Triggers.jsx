@@ -7,10 +7,8 @@ import {
   ZoomOut,
 } from "lucide-react";
 
-const Triggers = ({ imgId, setImgId, photos }) => {
-
+const Triggers = ({ imgId, setImgId, photos, setZoom }) => {
   const previousBtn = () => {
-    
     for (let i = 0; i < photos.length; i++) {
       if (photos[i].id === imgId.id && i === 0) {
         alert("This the first photo of the gallery ");
@@ -34,6 +32,19 @@ const Triggers = ({ imgId, setImgId, photos }) => {
     }
   };
 
+  const zoomInOut = (e) => {
+    if (e.target.childNodes[1].wholeText.trim() === "Zoom in") {
+      setZoom((prev) => Math.min(1.3, prev + 0.1));
+    } else {
+      setZoom((prev) => Math.max(1, prev - 0.1));
+    }
+    if (e.target.childNodes[1].wholeText.trim() === "Reset Zoom") {
+      console.log(" in reset zoom block");
+      
+      setZoom(1);
+    }
+  };
+
   return (
     <div className=" m-auto flex flex-col justify-center gap-4">
       <Button
@@ -41,20 +52,23 @@ const Triggers = ({ imgId, setImgId, photos }) => {
         text={"Previous"}
         func={previousBtn}
       />
-      
+
       <Button
         icon={<ZoomIn color="#5b4ae8" size={"20px"} />}
         text={"Zoom in"}
+        func={zoomInOut}
       />
 
       <Button
         icon={<ZoomOut color="#5b4ae8" size={"20px"} />}
         text={"Zoom out"}
+        func={zoomInOut}
       />
 
       <Button
         icon={<RefreshCcw color="#5b4ae8" size={"20px"} />}
         text={"Reset Zoom"}
+        func={zoomInOut}
       />
 
       <Button

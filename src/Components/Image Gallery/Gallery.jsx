@@ -8,6 +8,8 @@ import Triggers from "./Triggers";
 const Gallery = () => {
   const [photos, setPhotos] = useState(images);
   const [imgId, setImgId] = useState(0);
+  const [zoom ,setZoom] = useState(1)
+  
 
   return (
     <>
@@ -17,8 +19,8 @@ const Gallery = () => {
             <Header photos={photos} imgId={imgId} />
             <div className="flex gap-7 ">
               <SideImages photos={photos} imgId={imgId} setImgId={setImgId} />
-              <PreviewImg imgId={imgId} photos={photos} />
-              <Triggers imgId={imgId} setImgId={setImgId} photos={photos} />
+              <PreviewImg imgId={imgId} photos={photos} zoom = {zoom} />
+              <Triggers imgId={imgId} setImgId={setImgId} photos={photos} setZoom = {setZoom} />
             </div>
           </div>
 
