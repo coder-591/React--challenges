@@ -40,7 +40,7 @@ const Triggers = ({ imgId, setImgId, photos, setZoom }) => {
     }
     if (e.target.childNodes[1].wholeText.trim() === "Reset Zoom") {
       console.log(" in reset zoom block");
-      
+
       setZoom(1);
     }
   };

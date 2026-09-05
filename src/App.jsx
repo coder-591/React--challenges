@@ -12,6 +12,7 @@ import FaqContainer from "./Components/FAQSearch/FaqContainer";
 import Notification from "./Components/Notification/Notification";
 import DynamicTabs from "./Components/Dynamic Tabs/DynamicTabs";
 import Gallery from "./Components/Image Gallery/Gallery";
+import ImagePreview from "./Components/imagePreview/ImagePreview";
 
 const App = () => {
   return (
@@ -31,16 +32,18 @@ const App = () => {
       {/* <MultiStepForms /> */}
       {/* # 8 problem Dynamic form builder and #9 THEME toggle in it */}
       {/* <ShowDynamicForm /> */}
-      {/* # 10 problem Multi step form */}
+      {/* # 10 problem  */}
       {/* <Accordion /> */}
-      {/* # 11 problem Multi step form */}
-      {/* <FaqContainer /> */}  
-      {/* # 12 problem Multi step form */}
+      {/* # 11 problem  */}
+      {/* <FaqContainer />   */}
+      {/* # 12 problem  */}
       {/* <Notification /> */}
-      {/* # 13 problem Multi step form */}
+      {/* # 13 problem  */}
       {/* <DynamicTabs /> */}
-      {/* # 14 problem Multi step form */}
-      <Gallery />
+      {/* # 14 problem  */}
+      {/* <Gallery /> */}
+      {/* # 15 problem  */}
+      <ImagePreview />
     </>
   );
 };
