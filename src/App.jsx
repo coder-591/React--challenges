@@ -13,6 +13,7 @@ import Notification from "./Components/Notification/Notification";
 import DynamicTabs from "./Components/Dynamic Tabs/DynamicTabs";
 import Gallery from "./Components/Image Gallery/Gallery";
 import ImagePreview from "./Components/imagePreview/ImagePreview";
+import Checker from "./Components/PasswordStrengthChecker/Checker";
 
 const App = () => {
   return (
@@ -43,7 +44,10 @@ const App = () => {
       {/* # 14 problem  */}
       {/* <Gallery /> */}
       {/* # 15 problem  */}
-      <ImagePreview />
+      {/* <ImagePreview /> */}
+      {/* # 16 problem  */}
+      <Checker />
+
     </>
   );
 };
