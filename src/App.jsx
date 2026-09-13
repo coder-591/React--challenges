@@ -14,6 +14,7 @@ import DynamicTabs from "./Components/Dynamic Tabs/DynamicTabs";
 import Gallery from "./Components/Image Gallery/Gallery";
 import ImagePreview from "./Components/imagePreview/ImagePreview";
 import Checker from "./Components/PasswordStrengthChecker/Checker";
+import Container from "./Components/CommentBox/Container";
 
 const App = () => {
   return (
@@ -36,7 +37,7 @@ const App = () => {
       {/* # 10 problem  */}
       {/* <Accordion /> */}
       {/* # 11 problem  */}
-      {/* <FaqContainer />   */}
+      {/* <FaqContainer />*/}
       {/* # 12 problem  */}
       {/* <Notification /> */}
       {/* # 13 problem  */}
@@ -46,8 +47,9 @@ const App = () => {
       {/* # 15 problem  */}
       {/* <ImagePreview /> */}
       {/* # 16 problem  */}
-      <Checker />
-
+      {/* <Checker /> */}
+      {/* # 17 problem  */}
+      <Container />
     </>
   );
 };
