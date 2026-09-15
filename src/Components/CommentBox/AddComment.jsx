@@ -6,8 +6,21 @@ import {
   MessageCircle,
   Smile,
 } from "lucide-react";
+import { useDispatch } from "react-redux";
+import { addComment } from "../../../Slices/Comment.js";
+import { useState } from "react";
 
 const AddComment = () => {
+  const dispatch = useDispatch();
+  const [userComment, setUserComment] = useState("");
+  
+  
+
+  const clickHandler = () => {
+    dispatch(addComment(userComment));
+    setUserComment("");
+  };
+
   return (
     <>
       <div className="px-6 mt-6 flex items-center justify-between">
@@ -31,8 +44,11 @@ const AddComment = () => {
       <div className="mt-6">
         <div className="px-6">
           <textarea
+            value={userComment}
+            onChange={(e) => setUserComment(e.target.value)}
             className=" outline-0 scrollbar-none w-full resize-none text-sm font-medium h-14 border border-borderColor rounded-xl px-4 py-2"
             placeholder="Write a comment..."
+          
           />
           <div className="flex items-center justify-between px-4 mt-2">
             {/* icons */}
@@ -41,7 +57,10 @@ const AddComment = () => {
               <Image size={20} color="#374151" />
               <Link size={20} color="#374151" />
             </div>
-            <button className="outline-0  shadow-sm px-6 rounded-xl py-2 bg-purpleColor text-white font-semibold text-sm">
+            <button
+              onClick={clickHandler}
+              className=" cursor-pointer outline-0  shadow-sm px-6 rounded-xl py-2 bg-purpleColor text-white font-semibold text-sm"
+            >
               Post
             </button>
           </div>

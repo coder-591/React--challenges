@@ -1,6 +1,8 @@
 import Comments from "./Comments";
 
 const CommentBox = () => {
+  // console.log("inside commentBox component");
+  
   return (
     <>
       <div className="px-6">

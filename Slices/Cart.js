@@ -1,5 +1,4 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
-import { useState } from "react";
 
 const initialState = {
   cartItems: [],
@@ -11,9 +10,7 @@ export const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const product = action.payload;
-
       const existingItem = state.cartItems.find((t) => t.id == product.id);
-
       if (existingItem) {
         existingItem.quantity += 1;
       } else {

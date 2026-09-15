@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 const Cart = () => {
   const cartItems = useSelector((state) => state.cartItems);
 
+
   return (
     <div>
       {cartItems?.map((item,idx) => (

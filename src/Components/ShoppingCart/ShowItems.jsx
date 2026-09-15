@@ -1,4 +1,3 @@
-import React, { useRef } from "react";
 import { products } from "../Multi Filter/items";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
