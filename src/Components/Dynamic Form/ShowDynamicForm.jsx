@@ -15,6 +15,7 @@ const ShowDynamicForm = () => {
         }`}
       >
         <Navbar />
+        
         <MainContainer />
       </div>
     </>

@@ -1,9 +1,14 @@
 const comments = [
     {
-        id:"1234",
+        id:1,
         username:"afaq",
         text:"Great Question",
-        likes:5,
         replies:[]
     }
 ]
+
+
+
+
+
+

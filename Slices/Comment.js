@@ -1,25 +1,32 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = {
   comments: [],
 };
-console.log(initialState);
-
 
 export const commentSlice = createSlice({
   name: "Comments",
   initialState,
   reducers: {
     addComment: (state, action) => {
-      console.log(state.comments);
-      
-      state.comments.push(action.payload);
+      const commentObj = {
+        id: nanoid(),
+        text: action.payload,
+        replies: [],
+      };
+      state.comments.push(commentObj);
+    },
+
+    addReplies: (state, action) => {
+      const targetComment = state.comments.find(
+        (comment) => comment.id === action.payload.id,
+      );
+      targetComment.replies.push(action.payload.comment);
     },
   },
 });
 
-// console.log(commentSlice.reducer);
 
-export const { addComment } = commentSlice.actions;
+export const { addComment, addReplies } = commentSlice.actions;
 
 export default commentSlice.reducer;

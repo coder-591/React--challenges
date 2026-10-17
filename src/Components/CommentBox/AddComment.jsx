@@ -7,19 +7,29 @@ import {
   Smile,
 } from "lucide-react";
 import { useDispatch } from "react-redux";
-import { addComment } from "../../../Slices/Comment.js";
-import { useState } from "react";
+import { addComment, addReplies } from "../../../Slices/Comment.js";
+import { useEffect, useRef, useState } from "react";
 
-const AddComment = () => {
+const AddComment = ({ replyId, setReplyId }) => {
   const dispatch = useDispatch();
   const [userComment, setUserComment] = useState("");
-  
-  
+  const replyRef = useRef();
 
   const clickHandler = () => {
-    dispatch(addComment(userComment));
+    if (replyId.id) {
+      dispatch(addReplies({ id: replyId.id, comment: userComment }));
+      setReplyId("");
+    } else {
+      dispatch(addComment(userComment));
+    }
     setUserComment("");
   };
+
+  useEffect(() => {
+    console.log("useEffect runs");
+    
+    replyRef.current.focus();
+  }, [replyId.focusInput]);
 
   return (
     <>
@@ -44,11 +54,11 @@ const AddComment = () => {
       <div className="mt-6">
         <div className="px-6">
           <textarea
+            ref={replyRef}
             value={userComment}
             onChange={(e) => setUserComment(e.target.value)}
             className=" outline-0 scrollbar-none w-full resize-none text-sm font-medium h-14 border border-borderColor rounded-xl px-4 py-2"
             placeholder="Write a comment..."
-          
           />
           <div className="flex items-center justify-between px-4 mt-2">
             {/* icons */}
@@ -66,7 +76,6 @@ const AddComment = () => {
           </div>
         </div>
       </div>
-      {/* <hr className="mt-4 text-borderColor" /> */}
     </>
   );
 };
